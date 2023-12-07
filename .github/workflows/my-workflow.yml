@@ -29,14 +29,14 @@ jobs:
     needs: build
     steps:
       - name: Connection_Checkstyle
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Connection_Screen_Result
         uses: nikitasavinov/checkstyle-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: 'github-pr-check'
-          tool_name: 'testing_checkstyle.xml'
+          tool_name: 'checkstyle.xml'
           fail_on_error: true
           level: 'error'
           filter_mode: nofilter
