@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: gradle clean build 
         
-      - name: Save_Artifact
+      - name: Second_Additional_Task
         uses: actions/upload-artifact@v3
         with:
           name: testReport
@@ -36,6 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: 'github-pr-check'
           tool_name: 'reviewdog'
+          checkstyle_config: '${{ github.workspace }}/config/checkstyle/checkstyle.xml'
           fail_on_error: true
           level: 'error'
           filter_mode: nofilter
@@ -59,7 +60,7 @@ jobs:
       - name: Run_Jacoco
         run: ./gradlew jacocoTestReport
         
-      - name: Solving_Additional_Task
+      - name: First_Additional_Task
         id: jacoco
         uses: madrapps/jacoco-report@v1.6.1
         with:
@@ -68,5 +69,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 80
+          update-comment: true
           title: Code Coverage
-  
+          
