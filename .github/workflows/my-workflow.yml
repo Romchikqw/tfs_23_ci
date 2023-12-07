@@ -26,6 +26,7 @@ jobs:
       
   checkstyle:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Connection_Checkstyle
         uses: actions/checkout@v3
@@ -33,6 +34,7 @@ jobs:
 
   coverage:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Connection_Checkstyle
         uses: actions/checkout@v3
