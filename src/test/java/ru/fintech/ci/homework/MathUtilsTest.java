@@ -66,7 +66,7 @@ class MathUtilsTest {
 
     @Test
     public void testPrimeFactorizationNumberOne() {
-        int number = 1;
+        int number = 2-1;
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> MathUtils.primeFactorization(number));
     }
