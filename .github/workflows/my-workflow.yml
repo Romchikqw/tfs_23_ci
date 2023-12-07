@@ -6,7 +6,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -36,7 +35,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: 'github-pr-check'
-          tool_name: 'testing-checkstyle.xml'
+          tool_name: 'checkstyle.xml'
           fail_on_error: true
           level: 'error'
           filter_mode: nofilter
